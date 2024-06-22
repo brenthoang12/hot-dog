@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang = "en-US">
+
+    <head>
+        <title>not dog</title> 
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+        
+        <link rel="stylesheet" href="css/style.css">
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    </head>
+
+    <body>
+
+        <main class="app">
+            <!--title-->
+            <div class="heading">
+                <p>not dog</p>
+            </div>
+
+
+            <!--user input-->
+            <div class="user-input">
+                <label for="input-file" id="drop-area">
+                    <input type="file" accept="image/*" id="input-file" hidden>
+                    <!--display uploaded image-->
+                    <div id="img-view"> 
+                        <p>drag and drop or click here to upload image</p>
+                        <span>upload any images from desktop</span>
+                    </div>
+                </label>
+            </div>
+
+
+            <!--operation-->
+            <div class="butter">
+                <button id="run">run</button>
+                <button id="clear">clear</button>
+            </div>
+            
+            
+            <!--result-->
+            <div class="result" id="yes">
+                <p>hot dog ✅ 🌭</p>
+            </div>
+            <div class="result" id="no">
+                <p>not hot dog ❌ 🌭</p>
+            </div>
+        </main>
+
+        <script src="js/script.js"></script>
+
+    </body>
+</html>
+
