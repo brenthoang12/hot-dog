@@ -25,3 +25,4 @@ images = np.vstack([x])
 predict_x=model.predict(images) 
 classes_x=np.argmax(predict_x,axis=1)
 print(classes_x)
+

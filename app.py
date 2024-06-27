@@ -9,7 +9,7 @@ import io
 app = Flask(__name__)
 
 #Load model
-model = load_model('model/test.h5')
+model = load_model('model/model.h5')
 
 #Process image for model
 def preprocess_image(image):
