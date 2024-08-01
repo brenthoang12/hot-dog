@@ -8,14 +8,15 @@ import io
 app = Flask(__name__)
 
 # process image
-def preprocess_image(image, target_size):
-    image = image.resize(target)
-
+def preprocess_image(image):
+    image = image.resize(128)
+    image = np.expand_dims(image, axis=0)
+    return image
 
 # load model
 def creat_model():
     model = tf.keras.Sequential([ 
-        tf.keras.layers.Rescaling(1./255, input_shape=(SIDE_LEN, SIDE_LEN, 3)),
+        tf.keras.layers.Rescaling(1./255, input_shape=(128, 128, 3)),
         tf.keras.layers.Conv2D(32, (3, 3), activation='relu'),
         tf.keras.layers.MaxPooling2D((2, 2)),
         tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
@@ -34,8 +35,12 @@ def creat_model():
     return model
 
 model = creat_model()
-model.load_weights()
+model.load_weights('/Users/brenthoang/Documents/Test_Project/hot-dog/model/training_2/cp-0005.weights.h5')
 
+
+# predict image
+def get_prediction(model, image):
+    
 
 
 @app.route('/')
