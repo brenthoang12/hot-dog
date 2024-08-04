@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang = "en-US">
+
+    <head>
+        <title>hot dog</title> 
+        <link rel="stylesheet" href="static/styles/style.css">
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    </head>
+
+    <body>
+
+        <main class="app">
+            <!--title-->
+            <div class="heading">
+                <p>not dog</p>
+            </div>
+
+
+            <!--user input-->
+            <div class="user-input">
+                <label for="input-file" id="drop-area">
+                    <form action="/"  method="post" enctype="multipart/form-data">
+                        <input type="file" accept="image/*" id="input-file" name="get-image" hidden>
+                        <!--display uploaded image-->
+                        <div id="img-view"> 
+                            <p>drag and drop or click here to upload image</p>
+                            <span>upload any images from desktop</span>
+                        </div>
+
+                        
+                    </form>
+                </label>
+            </div>
+
+
+            <!--operation-->
+            <div class="butter">
+                <button id="run">run</button>
+                <button id="clear">clear</button>
+            </div>
+            
+            
+            <!--result-->
+            <!-- <div class="result" id="yes">
+                <p>hot dog ✅ 🌭</p>
+            </div>
+            <div class="result" id="no">
+                <p>not hot dog ❌ 🌭</p>
+            </div> -->
+            {% if prediction %}
+                <div class="result">
+                    <p class="text-center"> Image is a {{prediction}}</p>
+                </div>
+            {% endif %}
+
+        </main>
+
+        <script src="static/js/script.js"></script>
+
+    </body>
+</html>
+

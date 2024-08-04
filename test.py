@@ -1,28 +1,36 @@
-import os # test number of file
-import numpy as np
-import h5py
-import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.models import Sequential, load_model
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, Activation, Dropout, Flatten, Dense
-from tensorflow.keras.optimizers import RMSprop
+# process image
+def preprocess_image(image):
+    image = image.resize(128)
+    image = np.expand_dims(image, axis=0)
+    return image
+
+# load model
+def creat_model():
+    model = tf.keras.Sequential([ 
+        tf.keras.layers.Rescaling(1./255, input_shape=(128, 128, 3)),
+        tf.keras.layers.Conv2D(32, (3, 3), activation='relu'),
+        tf.keras.layers.MaxPooling2D((2, 2)),
+        tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
+        tf.keras.layers.MaxPooling2D((2, 2)),
+        tf.keras.layers.Conv2D(128, (3, 3), activation='relu'),
+        tf.keras.layers.MaxPooling2D((2, 2)),
+        tf.keras.layers.Flatten(),
+        tf.keras.layers.Dense(128, activation='relu'),
+        tf.keras.layers.Dense(1, activation='sigmoid')
+    ])
+    
+    model.compile(optimizer='adam',
+              loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
+              metrics=[tf.keras.metrics.BinaryCrossentropy(from_logits=True, name='binary_crossentropy'),'accuracy'])
+    
+    return model
+
+model = creat_model()
+model.load_weights('/Users/brenthoang/Documents/Test_Project/hot-dog/model/training_2/cp-0005.weights.h5')
 
 
-model = load_model('model/model.h5')
-model.compile(loss='binary_crossentropy',
-              optimizer='rmsprop',
-              metrics=['accuracy'])
-
-img_width, img_height = 300, 300
-
-img = image.load_img('model/original/test/hotdog/1823.jpg', target_size=(img_width, img_height))
-x = image.img_to_array(img)
-x = np.expand_dims(x, axis=0)
-
-images = np.vstack([x])
-predict_x=model.predict(images) 
-classes_x=np.argmax(predict_x,axis=1)
-print(classes_x)
-
+# predict image
+def get_prediction(model, image):
+    result = model.predict(image)
+    result = 1 if float(result[0]) > .5 else 0
+    return result
