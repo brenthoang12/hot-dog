@@ -6,8 +6,7 @@ const imageView = document.getElementById('img-view');
 // variable for model operation
 const run = document.getElementById('run');
 const clear = document.getElementById('clear');
-const yesModel = document.getElementById('yes');
-const noModel = document.getElementById('no');
+const modelReturn = document.getElementById('modelReturn');
 
 
 
@@ -37,13 +36,12 @@ dropArea.addEventListener("drop", function(e){
 
 run.addEventListener('click', function() {
     // if (yesModel.style.display === 'none') {
-    yesModel.style.display = 'block';
+    modelReturn.style.display = 'block';
     // } else {
     //     yesModel.style.display = 'none';
     // }
 });
 
 clear.addEventListener('click', function() {
-    yesModel.style.display = 'none';
-    noModel.style.display = 'none';
+    modelReturn.style.display = 'none';
 });

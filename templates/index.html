@@ -19,27 +19,24 @@
 
             <!--user input-->
             <div class="user-input">
-                <label for="input-file" id="drop-area">
-                    <form action="/"  method="post" enctype="multipart/form-data">
+                <form action="/"  method="post" enctype="multipart/form-data">
+                    <label for="input-file" id="drop-area">
                         <input type="file" accept="image/*" id="input-file" name="get-image" hidden>
                         <!--display uploaded image-->
                         <div id="img-view"> 
                             <p>drag and drop or click here to upload image</p>
                             <span>upload any images from desktop</span>
                         </div>
+                    </label>
 
-                        
-                    </form>
-                </label>
+                    <!--operation-->
+                    <div class="butter">
+                        <button type="submit" id="run">Run</button>
+                        <button id="clear">clear</button>
+                    </div>
+                </form>
             </div>
 
-
-            <!--operation-->
-            <div class="butter">
-                <button id="run">run</button>
-                <button id="clear">clear</button>
-            </div>
-            
             
             <!--result-->
             <!-- <div class="result" id="yes">
@@ -49,8 +46,8 @@
                 <p>not hot dog ❌ 🌭</p>
             </div> -->
             {% if prediction %}
-                <div class="result">
-                    <p class="text-center"> Image is a {{prediction}}</p>
+                <div class="result" id="modelReturn">
+                    <p class="text-center">{{prediction}}</p>
                 </div>
             {% endif %}
 
