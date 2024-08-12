@@ -48,3 +48,6 @@ def predict():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+# cd /Users/brenthoang/Documents/Test_Project/hot-dog
