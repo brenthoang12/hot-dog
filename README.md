@@ -14,7 +14,7 @@ Determine if there is hotdog in the picture.
     - Categorize the image into different folders (hotdog and not hotdog) for tensorflow to understand.
     - [Optional] Perform image augmentation. 
     - Check labels and adjust if necessary. (IMPORTANT!)
-    - [Option] Create prefetch buffer and callbacks function for run time optimziation.
+    - [Optional] Create prefetch buffer and callbacks function for run time optimziation.
     - Come up with tensorflow models and metrics to determine model performance (I use model accuracy and binary cross entropy).
     - Train model with training and validation data.
     - Test model with testing data.
