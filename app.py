@@ -11,7 +11,7 @@ import io
 
 app = Flask(__name__)
 
-model = load_model('/Users/brenthoang/Documents/Test_Project/hot-dog/model/model.h5')
+model = load_model('hot-dog/model/model.h5')
 
 def get_prediction(model, process_image):
     yhat = model.predict(process_image)
@@ -50,4 +50,4 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 
-# cd /Users/brenthoang/Documents/Test_Project/hot-dog
+# 
