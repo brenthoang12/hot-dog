@@ -3,7 +3,7 @@ Determine if there is hotdog in the picture.
 
 ## To run the app
 
-1. Download necessary library listed in app.py (I forgot to create python virtual environment and that will never happen again). 
+1. Download listed python version and libraries in requirements. 
 2. Change your directory to current project folder.
 3. run `python3 app.py` or `python app.py`
 
@@ -26,7 +26,3 @@ Determine if there is hotdog in the picture.
 
 3. Do back end
     - Use flask to handle image processing, decision machine and output result 
-
-
-## Conclusion
-Harder than I expected but it was fun. 
